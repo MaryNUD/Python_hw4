@@ -16,5 +16,21 @@
 # Такого слова в словаре нет.
 # Введите слово: здравствуйте
 # Синоним: Привет
+synonyms_dict = dict()
+pairs_num = int(input('Enter the number of pairs: '))
+for i in range(pairs_num):
+    first_word, second_word = input(f'Pair №{i + 1}: ').lower().split(' - ')
+    synonyms_dict[first_word] = second_word
+    synonyms_dict[second_word] = first_word
+while True:
+    word = input('Enter a word: ').lower()
+# Проверяем, есть ли слово в словаре
+    if word in synonyms_dict:
+# Если есть, выводим синоним, приводя его к начальной букве заглавной
+        print('Synonym: ', synonyms_dict[word].capitalize())
+        break
+    else:
+# Если нет, выводим сообщение об ошибке
+        print('No such word in the dictionary.')
 
-
+    
